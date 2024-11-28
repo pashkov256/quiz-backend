@@ -1,82 +1,72 @@
-import bcrypt from "bcrypt";
-import { validationResult } from "express-validator";
-import jwt from "jsonwebtoken";
-import QuizModel from "../models/Quiz.js";
+import fs from "node:fs";
+import path from "node:path";
+import {v4 as uuidv4} from 'uuid';
 
 export const createQuiz = async (req, res) => {
     try {
+        const db = JSON.parse(fs.readFileSync(path.resolve('db', 'testdb.json'), 'UTF-8'))
+        const newQuizId = uuidv4()
+
+        let answers = req.body.answers
+        console.log(answers);
+        db.users.forEach((user, I) => {
+            if (user._id === req.userId) {
+                db.users[i].quizes = [...db.users[i].quizes, newQuizId];
+            }
+        })
+
+        db.quizes.push({
+            _id: newQuizId,
+            title: req.body.title,
+            questions: req.body.questions,
+            tags: req.body.tags,
+        });
+
+        answers.quizeId = newQuizId
+        db.answersQuizes = [db.answersQuizes, answers];
 
 
-        console.log(req.body)
-         const doc = new QuizModel({
-             title:req.body.title,
-             questions:req.body.questions
-         });
-
-         const user = await doc.save();
-
-
-
-         const { passwordHash, ...userData } = user._doc;
-        //
-        // res.json({ ...userData, token });
-        res.status(200).json(user._doc)
+        fs.writeFileSync(path.resolve('db', 'testdb.json'), JSON.stringify(db, null, 2), "UTF-8");
+        res.status(200).json({quizId: newQuizId});
     } catch (error) {
         console.log(error);
-        res.status(400).json({ message: "Не удалось зарегестрироваться" });
+        res.status(400).json({message: "Не удалось создать квиз"});
     }
 };
-
-export const login = async (req, res) => {
+export const checkQuizAnswer = async (req, res) => {
     try {
-        const user = await UserModel.findOne({ email: req.body.email });
+        const db = JSON.parse(fs.readFileSync(path.resolve('db', 'testdb.json'), 'UTF-8'))
+        const userAnswer = req.body.userAnswer
+        const {quizeId, questionId} = req.params
 
-        if (!user) {
-            return res.status(404).json({
-                message: "Пользователь не найден",
-            });
-        }
+        const quiz = db.answersQuizes.find((el) => el.quizeId == quizeId)
+        const answer = quiz.answers.find((el) => el.questionId == questionId)
 
-        const isValidPass = await bcrypt.compare(
-            req.body.password,
-            user._doc.passwordHash
-        );
-        if (!isValidPass) {
-            return res.status(400).json({
-                message: "Неверный логин или пароль",
-            });
-        }
 
-        const token = jwt.sign(
-            {
-                _id: user._id,
-            },
-            "sercetkeyy",
-            {
-                expiresIn: "30d",
-            }
-        );
-        const { passwordHash, ...userData } = user._doc;
-        res.json({ ...userData, token });
+        console.log(answer)
+        return res.status(200).json({userAnswer: answer.answer === userAnswer, answer: answer.answer});
+
+
     } catch (error) {
-        res.json({ message: "Не удалось авторизоваться" });
+        console.log(error);
+        res.status(400).json({message: "Не удалось проверить ответ"});
     }
 };
-
-export const getMe = async (req, res) => {
+export const getQuizById = async (req, res) => {
     try {
-        const user = await UserModel.findById(req.userId, "-passwordHash");
+        const db = JSON.parse(fs.readFileSync(path.resolve('db', 'testdb.json'), 'UTF-8'))
+        const {quizeId} = req.params
 
-        if (!user) {
-            return res.status(404).json({
-                message: "Пользователь не найден",
-            });
+        const quiz = db.quizes.find((el) => el._id == quizeId)
+        if (quiz) {
+            return res.status(200).json(quiz);
+        } else {
+            return res.status(404).json({message: "Не удалось найти квиз"});
         }
 
-        const { ...userData } = user._doc;
 
-        res.json({ ...userData });
     } catch (error) {
-        res.status(500).json({ message: "Нет доступа" });
+        console.log(error);
+        res.status(400).json({message: "Не удалось проверить ответ"});
     }
 };

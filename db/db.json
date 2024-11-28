@@ -1,0 +1,79 @@
+{
+  "quizes": [
+    {
+      "id": "0728540f-0a83-439b-ba9d-67d4ebe6c3ec",
+      "title": "О IT",
+      "questions": [
+        {
+          "questionId": 1,
+          "question": "Кто основал Linux?",
+          "answerOptions": ["Linus Torvalds", "Bill Gates", "Steve Jobs"]
+        },
+        {
+          "questionId": 2,
+          "question": "Какой язык программирования считается основным для разработки на платформе Android?",
+          "answerOptions": ["Java", "Python", "Swift"]
+        },
+        {
+          "questionId": 3,
+          "question": "Какой из этих языков наиболее популярен для создания веб-страниц?",
+          "answerOptions": ["HTML", "C++", "Java"]
+        },
+        {
+          "questionId": 4,
+          "question": "Как расшифровывается аббревиатура CPU?",
+          "answerOptions": [
+            "Central Processing Unit",
+            "Central Power Unit",
+            "Computer Processing Unit"
+          ]
+        },
+        {
+          "questionId": 5,
+          "question": "Какой язык программирования используется для работы с базами данных?",
+          "answerOptions": ["SQL", "JavaScript", "Pascal"]
+        },
+        {
+          "questionId": 6,
+          "question": "Какой из этих протоколов используется для защиты данных в интернете?",
+          "answerOptions": ["HTTPS", "FTP", "SMTP"]
+        }
+      ]
+    }
+  ],
+  "answersQuizes": [
+    {
+      "quizeId" :"0728540f-0a83-439b-ba9d-67d4ebe6c3ec",
+      "answers": [
+        {
+          "questionId": 1,
+          "answer": "Linus Torvalds"
+        },
+        {
+          "questionId": 2,
+          "answer": "Java"
+        },
+        {
+          "questionId": 3,
+          "answer": "HTML"
+        },
+        {
+          "questionId": 4,
+          "answer": "Central Processing Unit"
+        },
+        {
+          "questionId": 5,
+          "answer": "SQL"
+        },
+        {
+          "questionId": 6,
+          "answer": "HTTPS"
+        }
+      ]
+    }
+  ]
+  ,
+  "users": [
+
+  ]
+}

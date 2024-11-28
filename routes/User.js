@@ -1,7 +1,8 @@
 import express from "express";
-import { getMe, login, register } from "../controllers/UserController.js";
+import {getMe, login, register} from "../controllers/UserController.js";
 import checkAuth from "../utils/checkAuth.js";
-import { loginValidation, registerValidation } from "../validations.js";
+import {loginValidation, registerValidation} from "../validations.js";
+
 const router = express.Router();
 
 router.post("/auth/register", registerValidation, register);

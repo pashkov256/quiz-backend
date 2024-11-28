@@ -1,0 +1,200 @@
+{
+  "quizes": [
+    {
+      "_id": "0728540f-0a83-439b-ba9d-67d4ebe6c3ec",
+      "title": "О IT",
+      "questions": [
+        {
+          "questionId": 1,
+          "question": "Кто основал Linux?",
+          "answerOptions": [
+            "Linus Torvalds",
+            "Bill Gates",
+            "Steve Jobs"
+          ]
+        },
+        {
+          "questionId": 2,
+          "question": "Какой язык программирования считается основным для разработки на платформе Android?",
+          "answerOptions": [
+            "Java",
+            "Python",
+            "Swift"
+          ]
+        },
+        {
+          "questionId": 3,
+          "question": "Какой из этих языков наиболее популярен для создания веб-страниц?",
+          "answerOptions": [
+            "HTML",
+            "C++",
+            "Java"
+          ]
+        },
+        {
+          "questionId": 4,
+          "question": "Как расшифровывается аббревиатура CPU?",
+          "answerOptions": [
+            "Central Processing Unit",
+            "Central Power Unit",
+            "Computer Processing Unit"
+          ]
+        },
+        {
+          "questionId": 5,
+          "question": "Какой язык программирования используется для работы с базами данных?",
+          "answerOptions": [
+            "SQL",
+            "JavaScript",
+            "Pascal"
+          ]
+        },
+        {
+          "questionId": 6,
+          "question": "Какой из этих протоколов используется для защиты данных в интернете?",
+          "answerOptions": [
+            "HTTPS",
+            "FTP",
+            "SMTP"
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "0b845d75-b7c3-47a2-8a5b-a69d145616a7",
+      "title": "История России XVIII века",
+      "questions": [
+        {
+          "questionId": 1,
+          "question": "Кто был первым императором Российской империи?",
+          "answerOptions": [
+            "Пётр I",
+            "Иван IV",
+            "Екатерина II"
+          ]
+        },
+        {
+          "questionId": 2,
+          "question": "Какой город был основан Петром I в 1703 году?",
+          "answerOptions": [
+            "Санкт-Петербург",
+            "Москва",
+            "Казань"
+          ]
+        },
+        {
+          "questionId": 3,
+          "question": "В каком году произошла Полтавская битва?",
+          "answerOptions": [
+            "1709",
+            "1721",
+            "1762"
+          ]
+        },
+        {
+          "questionId": 4,
+          "question": "Какое событие завершило Северную войну?",
+          "answerOptions": [
+            "Ништадтский мир",
+            "Кючук-Кайнарджийский мир",
+            "Андрусовское перемирие"
+          ]
+        },
+        {
+          "questionId": 5,
+          "question": "Какой российский правитель издал Манифест о вольности дворянской в 1762 году?",
+          "answerOptions": [
+            "Пётр III",
+            "Екатерина II",
+            "Павел I"
+          ]
+        },
+        {
+          "questionId": 6,
+          "question": "Какая императрица получила прозвище 'Великая' за свои реформы?",
+          "answerOptions": [
+            "Екатерина II",
+            "Елизавета Петровна",
+            "Анна Иоанновна"
+          ]
+        }
+      ]
+    }
+  ],
+  "answersQuizes": [
+    [
+      {
+        "quizeId": "0728540f-0a83-439b-ba9d-67d4ebe6c3ec",
+        "answers": [
+          {
+            "questionId": 1,
+            "answer": "Linus Torvalds"
+          },
+          {
+            "questionId": 2,
+            "answer": "Java"
+          },
+          {
+            "questionId": 3,
+            "answer": "HTML"
+          },
+          {
+            "questionId": 4,
+            "answer": "Central Processing Unit"
+          },
+          {
+            "questionId": 5,
+            "answer": "SQL"
+          },
+          {
+            "questionId": 6,
+            "answer": "HTTPS"
+          }
+        ]
+      }
+    ],
+    {
+      "answers": [
+        {
+          "questionId": 1,
+          "answer": "Пётр I"
+        },
+        {
+          "questionId": 2,
+          "answer": "Санкт-Петербург"
+        },
+        {
+          "questionId": 3,
+          "answer": "1709"
+        },
+        {
+          "questionId": 4,
+          "answer": "Ништадтский мир"
+        },
+        {
+          "questionId": 5,
+          "answer": "Пётр III"
+        },
+        {
+          "questionId": 6,
+          "answer": "Екатерина II"
+        }
+      ],
+      "quizeId": "0b845d75-b7c3-47a2-8a5b-a69d145616a7"
+    }
+  ],
+  "users": [
+    {
+      "_id": "bc18b80a-21b0-4d53-8f4d-5a274c339db1",
+      "passwordHash": "$2b$10$r/uVy4raZmJXvBMBMcyIP.iXUDQeGQcZzahu3Tc6U7fQJwSDwiTIS",
+      "email": "b@b.b",
+      "fullName": "art"
+    },
+    {
+      "_id": "8c1e68ce-b636-4926-bf69-43917750138a",
+      "passwordHash": "$2b$10$nMpSWmUCuDHpX0KRGOuWfOXzhMAFH88YKWJViYf/7yOTrd2cicVKa",
+      "email": "c@c.c",
+      "fullName": "art"
+    }
+  ]
+}
