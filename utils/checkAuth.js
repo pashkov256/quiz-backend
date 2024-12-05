@@ -2,9 +2,10 @@ import jwt from "jsonwebtoken";
 
 export default (req, res, next) => {
     const token = (req.headers.authorization || "").replace(/Bearer\s?/, "");
-    console.log(token);
+    console.log(`Token ${token}`);
     if (token) {
         try {
+            console.log(token)
             const decoded = jwt.verify(token, "sercetkeyy");
 
             req.userId = decoded._id;

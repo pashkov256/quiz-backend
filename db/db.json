@@ -75,5 +75,16 @@
   ,
   "users": [
 
+  ],
+  "quizResults": [
+    {
+      "quizId": "4a4caf3a-f47a-4652-a6ff-6e222a32f20e",
+      "quizResults": [
+        {
+          "userId": "",
+          "userName": "Попович"
+        }
+      ]
+    }
   ]
 }

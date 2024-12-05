@@ -91,7 +91,9 @@ export const getMe = async (req, res) => {
                 message: "Пользователь не найден",
             });
         }
+
         const {passwordHash, ...userWithoutPassword} = user
+        console.log({passwordHash, ...userWithoutPassword})
         res.json({...userWithoutPassword});
     } catch (error) {
         res.status(500).json({message: "Нет доступа"});
