@@ -21,11 +21,11 @@ export const createQuiz = async (req, res) => {
          //   tags: req.body.tags,
             createdAt:getCurrentDate(),
             createdBy: req.userId,
-            availableUntil: req.body.availableUntil,peoplePassed: 0
+            availableUntil: req.body?.availableUntil || '',peoplePassed: 0
         });
 
         answers.quizId = newQuizId
-        db.answersQuizes = [...db.answersQuizes, {answers:answers,quizId:newQuizId}];
+        db.answersQuizes = [...db.answersQuizes, {answers,quizId:newQuizId}];
 
         db.quizResults.push({
             quizId:newQuizId,quizResults:[]
@@ -44,8 +44,9 @@ export const createQuiz = async (req, res) => {
         let quiz = req.body.quiz
         let answers = req.body.answers
         let quizId = req.params.quizId
-        db.quizes.forEach((quiz,i) => {
-            if(quiz._id === quizId) {
+        db.quizes.forEach((quizEl,i) => {
+            if(quizEl._id === quizId) {
+                db.quizes[i].availableUntil = req.body?.availableUntil || ""
                 db.quizes[i].questions = req.body.questions;
             }
         })

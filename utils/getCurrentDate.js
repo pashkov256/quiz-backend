@@ -4,7 +4,7 @@
     const month = String(date.getMonth() + 1).padStart(2, '0'); // Месяцы начинаются с 0 (январь)
     const year = date.getFullYear(); // Получаем полный год
 
-    return `${day}.${month}.${year}`; // Форматируем строку
+    return `${year}-${day}-${month}`; // Форматируем строку
 }
 
 
